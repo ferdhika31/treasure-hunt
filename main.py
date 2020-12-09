@@ -23,7 +23,7 @@ for rule in rules:
         checkTreasure = game.checkPlayerGetTreasure()
         # if possible move?
         if isMove:
-            possibleStep.append(step)
+            possibleStep.append(step+" Coordinate : "+game.getPlayerLocation().toString())
         # if founded treasure
         if checkTreasure:
             founded = True
