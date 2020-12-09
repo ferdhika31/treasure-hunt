@@ -6,10 +6,6 @@ class TreasureHunt:
     board = np.array([])
     playerLocation = Position(4, 1)
     treasures = ['$']
-    treasureLocations = []
-    maxNorth = 0
-    maxEast = 0
-    maxSouth = 0
 
     def __init__(self):
         # init board
@@ -24,11 +20,6 @@ class TreasureHunt:
         # init player location
         playerLocation = self.playerLocation
         self.board[playerLocation.x][playerLocation.y] = "X"
-
-        # init constraint
-        self.maxNorth = playerLocation.x - 1
-        self.maxEast = len(self.board[playerLocation.y]) - 1 - (playerLocation.y + 1)
-        self.maxSouth = len(self.board)-playerLocation.x - 2
 
         # init treasure location
         self.randomTreasureLocation()
@@ -60,8 +51,6 @@ class TreasureHunt:
         for i in range(0, len(treasures)):
             # set treasure clearpath posistion
             treasureLocation = Position(clearPathLoc[i][0], clearPathLoc[i][1])
-            # temp treasure location
-            self.treasureLocations.append(treasureLocation)
             # set treasure on board
             self.board[treasureLocation.x][treasureLocation.y] = treasures[i]
 
