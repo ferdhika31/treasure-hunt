@@ -42,3 +42,9 @@ To find possible rules and coordinate for finding the treasure, just type the fo
 ```bash
 python main.py
 ```
+
+## Screenshoot
+
+![alt text](https://github.com/ferdhika31/treasure-hunt/blob/master/screenshoot.png?raw=true)
+
+![alt text](https://github.com/ferdhika31/treasure-hunt/blob/master/screenshoot2.png?raw=true)
