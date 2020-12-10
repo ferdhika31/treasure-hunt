@@ -23,7 +23,7 @@ for rule in rules:
         checkTreasure = game.checkPlayerGetTreasure()
         # if possible move?
         if isMove:
-            possibleStep.append(step+" Coordinate : "+game.getPlayerLocation().toString())
+            possibleStep.append(game.getPlayerLocation().toString())
         # if founded treasure
         if checkTreasure:
             founded = True
@@ -33,13 +33,24 @@ for rule in rules:
     if founded:        
         possibleRules.append(possibleStep)
 
+def checkDuplicates(arr):
+    if len(arr) == len(set(arr)):
+        return False
+    else:
+        return True
+
 # rule to tuple
 rule_tuple = [tuple(x) for x in possibleRules]
 # sorted position rules
 uniquePossibleRules = sorted(set(rule_tuple), key=lambda x: rule_tuple.index(x))
-print("Rules :")
+
+print("Player Position :", game.getPlayerLocation().toString())
+print("Treasure Position :", [tloc.toString() for tloc in game.getTreasureLocation()])
+print("Step Rules Coordinate :")
 for rule in uniquePossibleRules:
-    print(rule)
+    # handle back step position
+    if not checkDuplicates(rule):
+        print(rule)
 
 # print board
 game.displayBoard()

@@ -6,6 +6,7 @@ class TreasureHunt:
     board = np.array([])
     playerLocation = Position(4, 1)
     treasures = ['$']
+    treasureLocations = []
 
     def __init__(self):
         # init board
@@ -33,6 +34,9 @@ class TreasureHunt:
     def getPlayerLocation(self):
         return self.playerLocation
 
+    def getTreasureLocation(self):
+        return self.treasureLocations
+
     def resetPlayerLocation(self):
         self.playerLocation = Position(4, 1)
 
@@ -51,6 +55,8 @@ class TreasureHunt:
         for i in range(0, len(treasures)):
             # set treasure clearpath posistion
             treasureLocation = Position(clearPathLoc[i][0], clearPathLoc[i][1])
+            # temp treasure location
+            self.treasureLocations.append(treasureLocation)
             # set treasure on board
             self.board[treasureLocation.x][treasureLocation.y] = treasures[i]
 
