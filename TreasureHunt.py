@@ -73,7 +73,7 @@ class TreasureHunt:
         treasureLoc = np.argwhere(self.board == "$")
         # convert to object Position
         treasures = list(map(lambda x: Position(x[0], x[1]), treasureLoc)) 
-        # check obstacle
+        # check treasure
         for treasure in treasures:
             if treasure.isEqualTo(location):
                 # clear path and remove treasure
@@ -87,6 +87,9 @@ class TreasureHunt:
 
     def move(self, direction):
         playerLocation = self.playerLocation
+        location = None
+        isObstacle = True
+
         if direction == "NORTH":
             location = Position(playerLocation.x - 1, playerLocation.y)
             isObstacle = self.checkObstaclePath(location)
